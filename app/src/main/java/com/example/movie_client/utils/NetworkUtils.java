@@ -11,16 +11,18 @@ import java.net.UnknownHostException;
 import java.security.Key;
 import java.util.Scanner;
 
+import javax.net.ssl.HttpsURLConnection;
+
 public class NetworkUtils {
 
-    private static final String BASE_URL = "http://www.omdbapi.com/";
+    private static final String BASE_URL = "https://www.omdbapi.com/";
     private static final String API_KEY = "apikey";
     private static final String T = "t";
 
     public static URL generateUrl(String movie_name) throws MalformedURLException {
         Uri buildUri = Uri.parse(BASE_URL)
                 .buildUpon()
-                .appendQueryParameter(API_KEY, "")
+                .appendQueryParameter(API_KEY, "Place your key here")
                 .appendQueryParameter(T, movie_name)
                 .build();
         URL url = null;
@@ -35,7 +37,7 @@ public class NetworkUtils {
 
     public static String getResponseFromURL(URL url) throws IOException {
 
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
 
         try {
             InputStream in = urlConnection.getInputStream();
@@ -49,10 +51,10 @@ public class NetworkUtils {
                 return scanner.next();
             else
                 return null;
+        } catch (UnknownHostException e) {
+            return null;
         } finally {
             urlConnection.disconnect();
         }
-
-
     }
 }

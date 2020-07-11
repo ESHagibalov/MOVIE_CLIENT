@@ -3,4 +3,12 @@
     <string name="enter_number">Enter film name</string>
     <string name="search">Search!</string>
     <string name="result_will_be_here">Result will be here</string>
+    <string name="title">Title:    </string>
+    <string name="rated">Rated:</string>
+    <string name="year">Year:</string>
+    <string name="genre">Genre:</string>
+    <string name="director">Director:</string>
+    <string name="runtime">Runtime:</string>
+    <string name="plot">Plot:</string>
+    <string name="error_message">Error. Chek your internet connection</string>
 </resources>
